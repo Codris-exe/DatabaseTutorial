@@ -1,14 +1,14 @@
-### How to Install MongoDB 6.0.3 on Ubuntu 22.04
+### How to Install MongoDB 8 on Ubuntu 22.04
 - Verify MongoDb Installed or Not
 ```sh
 mongod --version  
 ```
-- Install MongoDB 6.0.3 on Ubuntu 22.04
+- Install MongoDB 8 on Ubuntu 22.04
 - Installation Process depends on MongoDB Version and Ubuntu Version
 ```sh
-wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc | sudo apt-key add -
+wget -qO - https://www.mongodb.org/static/pgp/server-8.0.asc | sudo apt-key add -
 
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 
 sudo apt update
 
