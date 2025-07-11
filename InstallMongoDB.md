@@ -6,15 +6,19 @@ mongod --version
 - Install MongoDB 8 on Ubuntu 22.04
 - Installation Process depends on MongoDB Version and Ubuntu Version
 ```sh
-wget -qO - https://www.mongodb.org/static/pgp/server-8.0.asc | sudo apt-key add -
+sudo apt-get install gnupg curl
 
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
+curl -fsSL https://www.mongodb.org/static/pgp/server-8.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-8.0.gpg \
+   --dearmor
+
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb-server-8.0.gpg ] https://repo.mongodb.org/apt/ubuntu noble/mongodb-org/8.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-8.0.list
 
 sudo apt update
 
 sudo apt upgrade
 
-sudo apt install mongodb-org
+sudo apt-get install -y mongodb-org
 ```
 - Verify MongoDb Installed or Not
 ```sh
